@@ -1,7 +1,6 @@
 <?php
   require 'vendor/autoload.php';
   header("Content-length: 0");
-  http_response_code(200);
 
   echo "<h2> This page is for accident reporting purpose! </h2>";
 
@@ -15,5 +14,7 @@
     $_POST['id']=intval($_POST['id']);
     $entries->insertOne($_POST);
   }
+
+  http_response_code(200);
 
 ?>
