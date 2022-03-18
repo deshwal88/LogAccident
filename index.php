@@ -1,6 +1,7 @@
 <?php
   require 'vendor/autoload.php';
   header("Content-length: 0");
+  http_response_code(200);
 
   echo "<h2> This page is for accident reporting purpose! </h2>";
 
