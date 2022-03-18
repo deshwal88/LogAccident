@@ -9,8 +9,9 @@
   $db = $client->monitor;
   $entries = $db->entries;
 
-  if ($_POST){
+  if ($_POST && count($_POST)==7){
     $_POST['id']=intval($_POST['id']);
+    $entries->insertOne($_POST);
   }
-  $entries->insertOne($_POST);
+
 ?>
