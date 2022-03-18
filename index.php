@@ -1,6 +1,5 @@
 <?php
   require 'vendor/autoload.php';
-  header("Content-length: 0");
 
   echo "<h2> This page is for accident reporting purpose! </h2>";
 
