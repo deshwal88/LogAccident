@@ -1,19 +1,26 @@
 <?php
   require 'vendor/autoload.php';
 
-  echo "<h2> This page is for accident reporting purpose! </h2>";
+  if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    $uri = "mongodb+srv://admin:kanishk@cluster0.y9yu9.mongodb.net/monitor?retryWrites=true&w=majority";
+    $client = new MongoDB\Client($uri);
+    $db = $client->monitor;
+    $entries = $db->entries;
 
-  $uri = "mongodb+srv://admin:kanishk@cluster0.y9yu9.mongodb.net/monitor?retryWrites=true&w=majority";
-  $client = new MongoDB\Client($uri);
+    if (count($_POST)==7){
+      $_POST['id']=intval($_POST['id']);
+      $entries->insertOne($_POST);
+      echo "Reported successfully.";
+    }
 
-  $db = $client->monitor;
-  $entries = $db->entries;
+    else{
+      echo "Invalid data!";
+    }
 
-  if ($_POST && count($_POST)==7){
-    $_POST['id']=intval($_POST['id']);
-    $entries->insertOne($_POST);
+  }
+  else{
+    echo "<h2> This page is for accident reporting purpose! </h2>";
   }
 
   http_response_code(200);
-
 ?>
