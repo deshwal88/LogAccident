@@ -8,7 +8,7 @@
     $entries = $db->entries;
     
     $json = file_get_contents('php://input');
-    $data = json_decode($json);
+    $data = (array) json_decode($json);
     var_dump($json);
     var_dump($data);
 
