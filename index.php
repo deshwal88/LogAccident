@@ -6,6 +6,8 @@
     $client = new MongoDB\Client($uri);
     $db = $client->monitor;
     $entries = $db->entries;
+    $data = file_get_contents('php://input');
+    echo count($data);
 
     if (count($_POST)==7){
       $_POST['id']=intval($_POST['id']);
