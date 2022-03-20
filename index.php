@@ -9,12 +9,10 @@
     
     $json = file_get_contents('php://input');
     $data = (array) json_decode($json);
-    var_dump($json);
-    var_dump($data);
 
-    if (count($_POST)==7){
-      //$data['id']=intval($data['id']);
-      //$entries->insertOne($data);
+    if (count($data)==7){
+      $data['id']=intval($data['id']);
+      $entries->insertOne($data);
       echo "Reported successfully.";
     }
 
