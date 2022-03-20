@@ -6,12 +6,14 @@
     $client = new MongoDB\Client($uri);
     $db = $client->monitor;
     $entries = $db->entries;
-    var_dump(file_get_contents('php://input'));
-    var_dump($_POST);
+    
+    $json = file_get_contents('php://input');
+    $data = json_decode($json);
+    var_dump($data);
 
-    if (count($_POST)==7){
-      $_POST['id']=intval($_POST['id']);
-      $entries->insertOne($_POST);
+    if (count($data)==7){
+      $data['id']=intval($data['id']);
+      $entries->insertOne($data);
       echo "Reported successfully.";
     }
 
