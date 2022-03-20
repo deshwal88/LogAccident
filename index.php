@@ -9,6 +9,7 @@
     
     $json = file_get_contents('php://input');
     $data = json_decode($json);
+    var_dump($json);
     var_dump($data);
 
     if (count($_POST)==7){
