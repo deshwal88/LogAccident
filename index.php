@@ -8,6 +8,7 @@
     $entries = $db->entries;
     
     $json = file_get_contents('php://input');
+    var_dump($json);
     $data = (array) json_decode($json);
 
     if (count($data)==7){
