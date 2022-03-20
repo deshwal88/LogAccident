@@ -7,6 +7,7 @@
     $db = $client->monitor;
     $entries = $db->entries;
     var_dump(file_get_contents('php://input'));
+    var_dump($_POST);
 
     if (count($_POST)==7){
       $_POST['id']=intval($_POST['id']);
